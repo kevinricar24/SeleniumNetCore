@@ -14,7 +14,7 @@ namespace SeleniumNetCore
         {
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl("http://wwww.google.com");
+            driver.Navigate().GoToUrl("https://google.com");
         }
 
 
