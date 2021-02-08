@@ -36,29 +36,29 @@ namespace SeleniumNetCore
             titleActual = driver.Title.ToLower();
 
             // Assert
-            Assert.AreEqual(titleExpected, titleActual);
+            Assert.AreEqual(titleExpected, titleActual, msgerror(titleExpected, titleActual));
         }
 
         [Test]
         public void Test002_ValidateSearch()
         {
             // Arrange
-            string titleExpected = "selenium - Google Search", titleActual = string.Empty;
+            string titleExpected = "selenium - buscar con google", titleActual = string.Empty;
 
             // Act
             var inputGoogleSearch = driver.FindElement(By.Name("q"));
             inputGoogleSearch.Clear();
             inputGoogleSearch.SendKeys("selenium");
+            inputGoogleSearch.SendKeys(Keys.Enter);
 
-            var buttonGoogleSearch = driver.FindElement(By.Name("btnK"));
-            buttonGoogleSearch.Click();
+            //var buttonGoogleSearch = driver.FindElement(By.Name("btnK"));
+            //buttonGoogleSearch.Click();
 
-            
             titleExpected = titleExpected.ToLower();
             titleActual = driver.Title.ToLower();
 
             // Assert
-            Assert.AreEqual(titleExpected, titleActual);
+            Assert.AreEqual(titleExpected, titleActual, msgerror(titleExpected, titleActual));
         }
 
         [TearDown]
